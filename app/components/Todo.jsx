@@ -1,13 +1,17 @@
-let React = require("react");
+var React = require('react');
 
-let Todo = React.createClass({
+var Todo = React.createClass({
     render: function () {
-        let {text, id} = this.props;
+        var {id, text, completed} = this.props;
+
         return (
-            <div>
-                {id}  {text}
+            <div onClick={() => {
+                this.props.onToggle(id);
+            }}>
+                <input type="checkbox" checked={completed}/>
+                {text}
             </div>
-        );
+        )
     }
 });
 
